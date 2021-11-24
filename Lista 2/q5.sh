@@ -1,12 +1,12 @@
 #!/bin/bash
 read -p "Digite o arquivo 1: " a1
-cat ${a1} &> /dev/null || echo "erro: o arquivo ${a1} não existe"
+cat ${a1} &> /dev/null || if (($? != 0));then echo "erro: o arquivo ${a1} não existe" && exit; fi
 read -p "Digite o arquivo 2: " a2
-cat ${a2} &> /dev/null || echo "erro: o arquivo ${a2} não existe"
+cat ${a2} &> /dev/null || if (($? != 0));then echo "erro: o arquivo ${a2} não existe" && exit; fi
 read -p "Digite o arquivo 3: " a3
-cat ${a3} &> /dev/null || echo "erro: o arquivo ${a3} não existe"
+cat ${a3} &> /dev/null || if (($? != 0));then echo "erro: o arquivo ${a3} não existe" && exit; fi
 read -p "Digite o arquivo 4: " a4
-cat ${a4} &> /dev/null || echo "erro: o arquivo ${a4} não existe"
+cat ${a4} &> /dev/null || if (($? != 0));then echo "erro: o arquivo ${a4} não existe" && exit; fi
 #
 l1=$(wc -l < $a1)
 l2=$(wc -l < $a2)
